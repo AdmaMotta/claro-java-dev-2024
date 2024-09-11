@@ -10,7 +10,9 @@ public class Usuario {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
+    private String cpf;
     private String name;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     private Plano plano;
@@ -24,8 +26,9 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Long id, String name, Plano plano, List<Funcao> funcoes, List<Oferta> ofertas) {
+    public Usuario(Long id, String cpf,String name, Plano plano, List<Funcao> funcoes, List<Oferta> ofertas) {
         this.id = id;
+        this.cpf = cpf;
         this.name = name;
         this.plano = plano;
         this.funcoes = funcoes;
@@ -38,6 +41,14 @@ public class Usuario {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getName() {
