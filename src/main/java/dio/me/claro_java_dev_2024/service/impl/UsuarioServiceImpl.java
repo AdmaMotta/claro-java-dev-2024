@@ -1,7 +1,7 @@
 package dio.me.claro_java_dev_2024.service.impl;
 
 import dio.me.claro_java_dev_2024.domain.model.Usuario;
-import dio.me.claro_java_dev_2024.domain.repository.UsuarioRepository;
+import dio.me.claro_java_dev_2024.repository.UsuarioRepository;
 import dio.me.claro_java_dev_2024.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario create(Usuario usuario) {
-        if (usuarioRepository.existsAccountByCPF(usuario.getCpf())) {
+        if (usuarioRepository.existsAccountByCpf(usuario.getCpf())) {
             throw new IllegalArgumentException("This user already exists.");
         }
         return usuarioRepository.save(usuario);
